@@ -1,138 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine’s Day 💖</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #ffe6e6; /* light pink background */
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        h1 {
-            color: #ff3366;
-            margin-top: 30px;
-            font-size: 2.5rem;
-        }
-
-        p {
-            color: #ff6699;
-            font-size: 1.2rem;
-        }
-
-        button {
-            margin: 15px 0;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 20px;
-            background-color: #ff3366;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        button:hover {
-            transform: scale(1.1);
-        }
-
-        #message {
-            font-size: 1.2rem;
-            margin: 15px 0;
-            color: #cc0066;
-            font-weight: bold;
-        }
-
-        /* Photo gallery */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px auto;
-        }
-
-        .gallery img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Heart animation */
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            color: #ff3366;
-            animation: float 4s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-200px) rotate(180deg); opacity: 0.7; }
-            100% { transform: translateY(-400px) rotate(360deg); opacity: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine’s Day 💖</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #ffe6e6;
+        text-align: center;
+        overflow-x: hidden;
+        position: relative;
+    }
+    h1 { color: #ff3366; margin-top: 20px; font-size: 2.2rem; }
+    p { color: #ff6699; font-size: 1rem; margin: 5px 20px; }
+    button {
+        margin: 10px 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 20px;
+        background-color: #ff3366;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    button:hover { transform: scale(1.1); }
+    #message, #quote, #fact {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        color: #cc0066;
+        font-weight: bold;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+        margin: 20px;
+        padding: 0 10px;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    .heart {
+        position: absolute;
+        font-size: 1.8rem;
+        color: #ff3366;
+        animation: float 4s linear infinite;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        50% { transform: translateY(-180px) rotate(180deg); opacity: 0.7; }
+        100% { transform: translateY(-350px) rotate(360deg); opacity: 0; }
+    }
+    @media (max-width: 500px) {
+        h1 { font-size: 1.8rem; }
+        p, #message, #quote, #fact { font-size: 0.95rem; }
+        button { padding: 8px 16px; font-size: 0.95rem; }
+    }
+</style>
 </head>
 <body>
-    <h1>💖 Happy Valentine’s Day! 💖</h1>
-    <p>You are loved more than you know 💌</p>
-    <img src="images/heart.png" alt="Heart" width="100">
+<h1>💖 Happy Valentine’s Day! 💖</h1>
+<p>You are loved more than you know 💌</p>
+<img src="heart.png" alt="Heart" width="80">
 
-    <div>
-        <button onclick="showMessage()">Click for a Love Message</button>
-        <p id="message"></p>
-    </div>
+<div>
+    <button onclick="showMessage()">Love Message</button>
+    <button onclick="showQuote()">Love Quote</button>
+    <button onclick="showFact()">Fun Love Fact</button>
+    <p id="message"></p>
+    <p id="quote"></p>
+    <p id="fact"></p>
+</div>
 
-    <!-- Photo gallery -->
-    <div class="gallery">
-        <img src="photo1.jpg" alt="Photo 1">
-        <img src="photo2.jpg" alt="Photo 2">
-        <img src="photo3.jpg" alt="Photo 3">
-        <img src="photo4.jpg" alt="Photo 4">
-        <img src="photo5.jpg" alt="Photo 5">
-        <img src="photo6.jpg" alt="Photo 6">
-        <img src="photo7.jpg" alt="Photo 7">
-    </div>
+<div class="gallery">
+    <img src="photo1.jpg" alt="Photo 1">
+    <img src="photo2.jpg" alt="Photo 2">
+    <img src="photo3.jpg" alt="Photo 3">
+    <img src="photo4.jpg" alt="Photo 4">
+    <img src="photo5.jpg" alt="Photo 5">
+    <img src="photo6.jpg" alt="Photo 6">
+    <img src="photo7.jpg" alt="Photo 7">
+</div>
 
-    <!-- Floating hearts -->
-    <script>
-        // Love messages button
-        function showMessage() {
-            const messages = [
-                "You make my heart smile ❤️",
-                "Every moment with you is precious 💕",
-                "Love is in the air because of you 🌹",
-                "You are my favorite everything 💖",
-                "My heart beats for you 💌",
-                "You are the sunshine in my life 🌞"
-            ];
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            document.getElementById("message").innerText = randomMessage;
-        }
+<script>
+    const messages = [
+        "You make my heart smile ❤️",
+        "Every moment with you is precious 💕",
+        "I love you more than words can describe 💖",
+        "You are my today and all of my tomorrows 🌹",
+        "With you, even ordinary moments become magical ✨"
+    ];
+    const quotes = [
+        "Love is composed of a single soul inhabiting two bodies. — Aristotle",
+        "You know you’re in love when you can’t fall asleep because reality is finally better than your dreams. — Dr. Seuss",
+        "Where there is love there is life. — Mahatma Gandhi",
+        "Love recognizes no barriers. — Maya Angelou"
+    ];
+    const facts = [
+        "Holding hands releases oxytocin, the 'love hormone' ❤️",
+        "Couples who laugh together stay happier 😄",
+        "Hugging for 20 seconds reduces stress and strengthens connection 🤗",
+        "Chocolate and roses are classic love boosters 🍫🌹"
+    ];
 
-        // Floating hearts animation
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.innerText = '❤️';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
-        }
+    function showMessage() {
+        document.getElementById("message").innerText = messages[Math.floor(Math.random() * messages.length)];
+        document.getElementById("quote").innerText = "";
+        document.getElementById("fact").innerText = "";
+    }
 
-        setInterval(createHeart, 500);
-    </script>
+    function showQuote() {
+        document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById("message").innerText = "";
+        document.getElementById("fact").innerText = "";
+    }
+
+    function showFact() {
+        document.getElementById("fact").innerText = facts[Math.floor(Math.random() * facts.length)];
+        document.getElementById("message").innerText = "";
+        document.getElementById("quote").innerText = "";
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.innerText = '❤️';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
 </body>
 </html>
