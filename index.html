@@ -1,138 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day, Mayur 💖</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Brush Script MT', cursive;
-            overflow: hidden;
-            background: linear-gradient(to right, #ffdde1, #ee9ca7);
-        }
-        .slide {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: black;
-            font-size: 2em;
-            padding: 20px;
-            position: absolute;
-            top: 0;
-            left: 100vw;
-            transition: all 1s ease;
-        }
-        .active {
-            left: 0;
-        }
-        .emoji {
-            font-size: 1.2em;
-        }
-        /* Magical animations for each slide */
-        .slide1 { background: linear-gradient(to right, #ffe6f0, #ffb3c6); animation: float 6s infinite alternate; }
-        .slide2 { background: linear-gradient(to right, #e0f7fa, #80deea); animation: float 5s infinite alternate; }
-        .slide3 { background: linear-gradient(to right, #fff9c4, #ffe57f); animation: float 7s infinite alternate; }
-        .slide4 { background: linear-gradient(to right, #f3e5f5, #ce93d8); animation: float 6s infinite alternate; }
-        .slide5 { background: linear-gradient(to right, #e1bee7, #ba68c8); animation: float 5s infinite alternate; }
-        .slide6 { background: linear-gradient(to right, #dcedc8, #aed581); animation: float 7s infinite alternate; }
-        .slide7 { background: linear-gradient(to right, #ffccbc, #ff8a65); animation: float 6s infinite alternate; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day, Mayur 💖</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Brush Script MT', cursive;
+    overflow: hidden;
+    background: #ffdde1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 1s ease;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
+.slide-container {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 1.8em;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease, opacity 1s ease;
+}
 
-        /* Navigation buttons */
-        .nav {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-        }
-        .nav button {
-            padding: 10px 20px;
-            border: none;
-            background: #fff;
-            cursor: pointer;
-            font-size: 1em;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-    </style>
+/* Magical transitions */
+.fade-in {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+    animation: fadeZoom 1s forwards;
+}
+
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Background themes for each slide */
+.bg1 { background: linear-gradient(to right, #ffe6f0, #ffb3c6); }
+.bg2 { background: linear-gradient(to right, #e0f7fa, #80deea); }
+.bg3 { background: linear-gradient(to right, #fff9c4, #ffe57f); }
+.bg4 { background: linear-gradient(to right, #f3e5f5, #ce93d8); }
+.bg5 { background: linear-gradient(to right, #e1bee7, #ba68c8); }
+.bg6 { background: linear-gradient(to right, #dcedc8, #aed581); }
+.bg7 { background: linear-gradient(to right, #ffccbc, #ff8a65); }
+
+/* Buttons */
+.nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.nav button {
+    padding: 12px 25px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.nav button:hover {
+    transform: scale(1.2) rotate(5deg);
+    background: #ff9ec7;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 1.2em;
+    animation: floatUp 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+}
+</style>
 </head>
 <body>
 
-    <div class="slide slide1 active">
-        Happy Valentine's Day, baby😚🤍<br>
-        My love, you are my moon 🌙 in the darkest nights, my diamond 💎 in every moment, my everything 🤗.
-    </div>
+<div class="slide-container fade-in bg1" id="slide">
+    Happy Valentine's Day, Mayur🤍💎<br>My love, you are my moon🌜in the darkest nights, my diamond 💎, my everything 🤗.
+</div>
 
-    <div class="slide slide2">
-         Every time we fight, my heart aches 💔, but I never stop loving you. 
-        My struggles, my tears, my efforts were all for you, my love ❤️.
-    </div>
+<div class="nav">
+    <button onclick="prevSlide()">⬅️ Prev</button>
+    <button onclick="nextSlide()">Next ➡️</button>
+</div>
 
-    <div class="slide slide3">
-        Mayur, when I think of you, I feel magic ✨ in the air. 
-        You are my dream, my comfort, my hug 🤗, my laughter 😂, and my joy 💛.
-    </div>
+<script>
+let current = 0;
 
-    <div class="slide slide4">
-         Even when we have differences, my love for you grows stronger 💖. 
-        I cherish every memory, every smile, every moment spent with you 🌸.
-    </div>
+const slides = [
+    { text: "Happy Valentine's Day, Mayur🫂😚<br>My love, you are my moon 🌙 in the darkest nights, my diamond 💎, my everything 🤗.", bg: "bg1" },
+    { text: "Every time we fight, my heart aches 💔, but I never stop loving you. My struggles, my tears, my efforts were all for you ❤️.", bg: "bg2" },
+    { text: "Mayur, when I think of you, I feel magic ✨ in the air. You are my dream, my comfort, my hug 🤗, my laughter 😂, and my joy 💛.", bg: "bg3" },
+    { text: "Even when we have differences, my love for you grows stronger 💖. I cherish every memory, every smile, every moment 🌸.", bg: "bg4" },
+    { text: "I have shared my heart ❤️, my struggles 😢, and my love with you. You are the reason I smile every day 😊. You are my world 🌍.", bg: "bg5" },
+    { text: "🌈 I want to hold your hand 🤝 forever, to love you endlessly 💖. Nothing can change how much I adore you 💎.", bg: "bg6" },
+    { text: "My love for you is infinite ♾️, magical ✨, and pure 🤍. Happy Valentine's Day 💕! I love you now and always 🌙💌.", bg: "bg7" }
+];
 
-    <div class="slide slide5">
-        I have shared my heart ❤️, my struggles 😢, and my love with you. 
-        You are the reason I smile every day 😊. You are my world 🌍, Mayur.
-    </div>
+const slideContainer = document.getElementById("slide");
 
-    <div class="slide slide6">
-        🌈 I want to hold your hand 🤝 forever, to love you endlessly 💖. 
-        Nothing can change how much I adore you, my dearest Mayur 💎.
-    </div>
+function showSlide(index) {
+    const slide = slides[index];
+    slideContainer.className = "slide-container fade-in " + slide.bg;
+    slideContainer.innerHTML = slide.text;
 
-    <div class="slide slide7">
-       My love for you is infinite ♾️, magical ✨, and pure 🤍. 
-        Happy Valentine's Day,love 💕! I love you now and always 🌙💌.
-    </div>
+    // Optional: spawn magical hearts
+    for(let i=0;i<5;i++){
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random()*100 + 'vw';
+        heart.style.fontSize = (Math.random()*2+1) + 'em';
+        heart.innerText = '💖';
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(), 5000);
+    }
+}
 
-    <div class="nav">
-        <button onclick="prevSlide()">⬅️ Prev</button>
-        <button onclick="nextSlide()">Next ➡️</button>
-    </div>
+function nextSlide(){
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
 
-    <script>
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
+function prevSlide(){
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+</script>
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if(i === index) slide.classList.add('active');
-            });
-        }
-
-        function nextSlide() {
-            current = (current + 1) % slides.length;
-            showSlide(current);
-        }
-
-        function prevSlide() {
-            current = (current - 1 + slides.length) % slides.length;
-            showSlide(current);
-        }
-
-        // Optional: auto-slide every 7 seconds
-        // setInterval(nextSlide, 7000);
-    </script>
 </body>
 </html>
