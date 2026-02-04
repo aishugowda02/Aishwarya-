@@ -1,196 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine's Day Surprise for Mayur 💖</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Mayur 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Brush Script MT', cursive;
+            overflow: hidden;
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: black;
+            font-size: 2em;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 100vw;
+            transition: all 1s ease;
+        }
+        .active {
+            left: 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+        /* Magical animations for each slide */
+        .slide1 { background: linear-gradient(to right, #ffe6f0, #ffb3c6); animation: float 6s infinite alternate; }
+        .slide2 { background: linear-gradient(to right, #e0f7fa, #80deea); animation: float 5s infinite alternate; }
+        .slide3 { background: linear-gradient(to right, #fff9c4, #ffe57f); animation: float 7s infinite alternate; }
+        .slide4 { background: linear-gradient(to right, #f3e5f5, #ce93d8); animation: float 6s infinite alternate; }
+        .slide5 { background: linear-gradient(to right, #e1bee7, #ba68c8); animation: float 5s infinite alternate; }
+        .slide6 { background: linear-gradient(to right, #dcedc8, #aed581); animation: float 7s infinite alternate; }
+        .slide7 { background: linear-gradient(to right, #ffccbc, #ff8a65); animation: float 6s infinite alternate; }
 
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Dancing Script', cursive;
-        overflow-x: hidden;
-    }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
 
-    .slide {
-        width: 100%;
-        height: 100vh;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-        transition: all 1s ease;
-    }
-
-    .active {
-        display: flex;
-    }
-
-    /* Slide themes */
-    .slide1 { background: linear-gradient(120deg, #ff9a9e, #fad0c4); }
-    .slide2 { background: linear-gradient(120deg, #a18cd1, #fbc2eb); }
-    .slide3 { background: linear-gradient(120deg, #fbc2eb, #a6c1ee); }
-    .slide4 { background: linear-gradient(120deg, #fccb90, #d57eeb); }
-    .slide5 { background: linear-gradient(120deg, #e0c3fc, #8ec5fc); }
-    .slide6 { background: linear-gradient(120deg, #f093fb, #f5576c); }
-    .slide7 { background: linear-gradient(120deg, #ff9a9e, #fecfef); }
-
-    .heart {
-        font-size: 50px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        margin: 20px;
-    }
-
-    .heart:hover {
-        transform: scale(1.5) rotate(15deg);
-    }
-
-    .message {
-        max-width: 700px;
-        background: rgba(255, 255, 255, 0.2);
-        padding: 20px;
-        border-radius: 20px;
-        font-size: 1.3rem;
-        line-height: 1.8;
-        display: none;
-        margin-top: 20px;
-    }
-
-    .nav-buttons {
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 30px;
-    }
-
-    .nav-buttons button {
-        background: rgba(255, 255, 255, 0.4);
-        border: none;
-        padding: 10px 20px;
-        border-radius: 15px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .nav-buttons button:hover {
-        background: rgba(255, 255, 255, 0.7);
-    }
-
-</style>
+        /* Navigation buttons */
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .nav button {
+            padding: 10px 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
 
-<!-- Slide 1 -->
-<div class="slide slide1 active">
-    <h1>Happy Valentine's Day, love! 🤍😚🌜</h1>
-    <span class="heart" onclick="showMessage(1)">💖</span>
-    <div class="message" id="message1">
-        ❄️My dearest Mayur, today I want to tell you how much light you bring into my life. Just like the moon brightens the darkest nights, your love fills my heart with warmth and joy. Every moment with you feels magical, like we are dancing under the stars, wrapped in laughter, hugs 🤗, and endless kisses 😘. I love every little thing about you — your smile, your calmness, your quirks — all of it makes my world complete. You are my safe haven, my heart's home. 💖
+    <div class="slide slide1 active">
+        Happy Valentine's Day, baby😚🤍<br>
+        My love, you are my moon 🌙 in the darkest nights, my diamond 💎 in every moment, my everything 🤗.
     </div>
-</div>
 
-<!-- Slide 2 -->
-<div class="slide slide2">
-    <h1>Magical Moments 💎</h1>
-    <span class="heart" onclick="showMessage(2)">🤍</span>
-    <div class="message" id="message2">
-        Mayur, do you know what happens when I think of you? I feel like giggling uncontrollably! 😄 Your silly jokes, your funny faces, and even the way you dance like no one's watching fills my heart with happiness. Every day with you is like a magical adventure — we are partners in laughter, in love, and in everything that life throws at us. I adore the way we can be completely goofy together and still feel that deep, infinite love 💖 that binds us.
+    <div class="slide slide2">
+         Every time we fight, my heart aches 💔, but I never stop loving you. 
+        My struggles, my tears, my efforts were all for you, my love ❤️.
     </div>
-</div>
 
-<!-- Slide 3 -->
-<div class="slide slide3">
-    <h1> Endless Love🫂💗</h1>
-    <span class="heart" onclick="showMessage(3)">💖</span>
-    <div class="message" id="message3">
-        My sweet Mayur, I could write a thousand words and still not capture the depth of my love for you. You are my confidant, my joy, and my forever Valentine. Every heartbeat whispers your name, and every dream has your smile. I love our late-night talks, our shared dreams, and even the tiny little disagreements that make us stronger. Life with you is a beautiful melody, a song that I never want to end 🌙🤗😘.
+    <div class="slide slide3">
+        Mayur, when I think of you, I feel magic ✨ in the air. 
+        You are my dream, my comfort, my hug 🤗, my laughter 😂, and my joy 💛.
     </div>
-</div>
 
-<!-- Slide 4 -->
-<div class="slide slide4">
-    <h1>💌 Cute Confessions 💌</h1>
-    <span class="heart" onclick="showMessage(4)">🤍</span>
-    <div class="message" id="message4">
-        Mayur, sometimes I catch myself daydreaming about you and smiling like a crazy person in public 😅. It's because you have a magic spell on me — a spell of love, laughter, and endless cuteness. Your hugs 🤗 feel like home, your kisses 😘 like a sweet melody, and your presence makes every worry disappear. I am so grateful for you and for every tiny magical moment we share together. 💖
+    <div class="slide slide4">
+         Even when we have differences, my love for you grows stronger 💖. 
+        I cherish every memory, every smile, every moment spent with you 🌸.
     </div>
-</div>
 
-<!-- Slide 5 -->
-<div class="slide slide5">
-    <h1>Fun & Love🤭</h1>
-    <span class="heart" onclick="showMessage(5)">💖</span>
-    <div class="message" id="message5">
-        You are my favorite joke teller, my partner in pranks, and the only person who can make me laugh even when I'm upset 😂. Mayur, your humor and charm make life so bright. I love how we can be silly together, how your eyes light up when you tease me, and how your laughter echoes in my heart. Every day with you is a mix of love, magic, and happiness 🌙🤍🤗.
+    <div class="slide slide5">
+        I have shared my heart ❤️, my struggles 😢, and my love with you. 
+        You are the reason I smile every day 😊. You are my world 🌍, Mayur.
     </div>
-</div>
 
-<!-- Slide 6 -->
-<div class="slide slide6">
-    <h1> Forever & Always😚🤍</h1>
-    <span class="heart" onclick="showMessage(6)">🤍</span>
-    <div class="message" id="message6">
-        Mayur, I promise to stand by you through every twist and turn, every up and down. You are my dream come true, my moon in the night sky 🌙, and my endless source of love and joy. Together, we will create countless memories, magical and unforgettable moments, filled with laughter, hugs 🤗, and kisses 😘. You are my heart, my love, my everything 💖.
+    <div class="slide slide6">
+        🌈 I want to hold your hand 🤝 forever, to love you endlessly 💖. 
+        Nothing can change how much I adore you, my dearest Mayur 💎.
     </div>
-</div>
 
-<!-- Slide 7 -->
-<div class="slide slide7">
-    <h1>A Special Surprise💗🌜</h1>
-    <span class="heart" onclick="showMessage(7)">💖</span>
-    <div class="message" id="message7">
-        Mayur, as this Valentine's Day unfolds, I want you to remember one thing — you are loved beyond measure, cherished beyond words, and adored beyond imagination 💖. Every heartbeat whispers your name, every dream has your smile, and every moment is magical because you are in it. Let's make this day unforgettable, filled with love, laughter, and magic 🤍🤗😘. Happy Valentine's Day, my love!
+    <div class="slide slide7">
+       My love for you is infinite ♾️, magical ✨, and pure 🤍. 
+        Happy Valentine's Day,love 💕! I love you now and always 🌙💌.
     </div>
-</div>
 
-<!-- Navigation -->
-<div class="nav-buttons">
-    <button onclick="prevSlide()">⬅️ Previous</button>
-    <button onclick="nextSlide()">Next ➡️</button>
-</div>
+    <div class="nav">
+        <button onclick="prevSlide()">⬅️ Prev</button>
+        <button onclick="nextSlide()">Next ➡️</button>
+    </div>
 
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if(i === index) slide.classList.add('active');
-        });
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        currentSlide++;
-        if(currentSlide >= slides.length) currentSlide = 0;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide--;
-        if(currentSlide < 0) currentSlide = slides.length - 1;
-        showSlide(currentSlide);
-    }
-
-    function showMessage(number) {
-        const msg = document.getElementById('message' + number);
-        if(msg.style.display === 'block') {
-            msg.style.display = 'none';
-        } else {
-            msg.style.display = 'block';
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if(i === index) slide.classList.add('active');
+            });
         }
-    }
-</script>
 
+        function nextSlide() {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        }
+
+        function prevSlide() {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        }
+
+        // Optional: auto-slide every 7 seconds
+        // setInterval(nextSlide, 7000);
+    </script>
 </body>
 </html>
