@@ -3,145 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine’s Day 💖</title>
+<title>For Mayur 💖</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #ffe6e6;
-        text-align: center;
-        overflow-x: hidden;
-        position: relative;
-    }
-    h1 { color: #ff3366; margin-top: 20px; font-size: 2.2rem; }
-    p { color: #ff6699; font-size: 1rem; margin: 5px 20px; }
-    button {
-        margin: 10px 5px;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border: none;
-        border-radius: 20px;
-        background-color: #ff3366;
-        color: white;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    button:hover { transform: scale(1.1); }
-    #message, #quote, #fact {
-        font-size: 1.1rem;
-        margin: 10px 0;
-        color: #cc0066;
-        font-weight: bold;
-    }
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 15px;
-        margin: 20px;
-        padding: 0 10px;
-    }
-    .gallery img {
-        width: 100%;
-        height: auto;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        transition: transform 0.3s;
-    }
-    .gallery img:hover { transform: scale(1.05); }
-    .heart {
-        position: absolute;
-        font-size: 1.8rem;
-        color: #ff3366;
-        animation: float 4s linear infinite;
-        z-index: 9999;
-        pointer-events: none;
-    }
-    @keyframes float {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        50% { transform: translateY(-180px) rotate(180deg); opacity: 0.7; }
-        100% { transform: translateY(-350px) rotate(360deg); opacity: 0; }
-    }
-    @media (max-width: 500px) {
-        h1 { font-size: 1.8rem; }
-        p, #message, #quote, #fact { font-size: 0.95rem; }
-        button { padding: 8px 16px; font-size: 0.95rem; }
-    }
+  /* Basic Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Container for screens */
+  .screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 1s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .screen.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  h1, h2, p {
+    color: #fff;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+  }
+
+  p {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    background: #ff6a95;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    background: #ff4b7b;
+  }
+
+  /* Heart animation */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: float 6s linear infinite;
+    opacity: 0.7;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-800px) rotate(-45deg); opacity: 0; }
+  }
 </style>
 </head>
 <body>
-<h1>💖 Happy Valentine’s Day! 💖</h1>
-<p>You are loved more than you know 💌</p>
-<img src="heart.png" alt="Heart" width="80">
 
-<div>
-    <button onclick="showMessage()">Love Message</button>
-    <button onclick="showQuote()">Love Quote</button>
-    <button onclick="showFact()">Fun Love Fact</button>
-    <p id="message"></p>
-    <p id="quote"></p>
-    <p id="fact"></p>
+<!-- Screen 1 -->
+<div class="screen active" id="screen1">
+  <div>
+    <h1>💖 For Mayur 💖</h1>
+    <p>Hello Mayur! This is a special message just for you. Click below to see the magic of our love.</p>
+    <button onclick="nextScreen(2)">See Love 🌟</button>
+  </div>
 </div>
 
-<div class="image">
-    <img src="images/photo1.jpg" alt="Photo 1">
-    <img src="images/photo2.jpg" alt="Photo 2">
-    <img src="images/photo3.jpg" alt="Photo 3">
-    <img src="images/photo4.jpg" alt="Photo 4">
-    <img src="images/photo5.jpg" alt="Photo 5">
-    <img src="images/photo6.jpg" alt="Photo 6">
-    <img src="images/photo7.jpg" alt="Photo 7">
+<!-- Screen 2 -->
+<div class="screen" id="screen2">
+  <div>
+    <h2>You Are My Sunshine ☀️</h2>
+    <p>Mayur, every moment with you feels magical. Your smile lights up my world, and your love makes everything beautiful. ❤️</p>
+    <button onclick="nextScreen(3)">Next 💌</button>
+  </div>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen" id="screen3">
+  <div>
+    <h2>Forever Together 💞</h2>
+    <p>Our journey is my favorite adventure. I cherish every memory with you, Mayur. You are my heart, my happiness, my everything. 💖</p>
+    <button onclick="nextScreen(4)">More Magic ✨</button>
+  </div>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen" id="screen4">
+  <div>
+    <h2>Endless Love 🌹</h2>
+    <p>Mayur, I promise to stand by you, laugh with you, support you, and love you endlessly. Our love story is my favorite story. 💘</p>
+    <button onclick="nextScreen(1)">Replay ❤️</button>
+  </div>
 </div>
 
 <script>
-    const messages = [
-        "You make my heart smile ❤️",
-        "Every moment with you is precious 💕",
-        "I love you more than words can describe 💖",
-        "You are my today and all of my tomorrows 🌹",
-        "With you, even ordinary moments become magical ✨"
-    ];
-    const quotes = [
-        "Love is composed of a single soul inhabiting two bodies. — Aristotle",
-        "You know you’re in love when you can’t fall asleep because reality is finally better than your dreams. — Dr. Seuss",
-        "Where there is love there is life. — Mahatma Gandhi",
-        "Love recognizes no barriers. — Maya Angelou"
-    ];
-    const facts = [
-        "Holding hands releases oxytocin, the 'love hormone' ❤️",
-        "Couples who laugh together stay happier 😄",
-        "Hugging for 20 seconds reduces stress and strengthens connection 🤗",
-        "Chocolate and roses are classic love boosters 🍫🌹"
-    ];
+  function nextScreen(num) {
+    // Hide all screens
+    document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+    // Show selected screen
+    document.getElementById('screen' + num).classList.add('active');
+  }
 
-    function showMessage() {
-        document.getElementById("message").innerText = messages[Math.floor(Math.random() * messages.length)];
-        document.getElementById("quote").innerText = "";
-        document.getElementById("fact").innerText = "";
-    }
+  // Create floating hearts
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+    heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
 
-    function showQuote() {
-        document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
-        document.getElementById("message").innerText = "";
-        document.getElementById("fact").innerText = "";
-    }
-
-    function showFact() {
-        document.getElementById("fact").innerText = facts[Math.floor(Math.random() * facts.length)];
-        document.getElementById("message").innerText = "";
-        document.getElementById("quote").innerText = "";
-    }
-
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
-        heart.style.left = Math.random() * window.innerWidth + 'px';
-        heart.innerText = '❤️';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 4000);
-    }
-
-    setInterval(createHeart, 500);
+  setInterval(createHeart, 300);
 </script>
+
 </body>
 </html>
