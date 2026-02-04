@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's Day,Hubby🙈😚🤍</title>
+<title>Happy Valentine's Day, Hubby🙈😚🤍</title>
 <style>
 body {
     margin: 0;
@@ -26,7 +26,7 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
-    color: #fff;
+    color: #000; /* Black text */
     font-size: 1.8em;
     min-height: 300px;
     display: flex;
@@ -88,12 +88,35 @@ body {
     position: absolute;
     font-size: 1.2em;
     animation: floatUp 5s linear infinite;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 @keyframes floatUp {
     0% { transform: translateY(100vh) scale(1); opacity: 1; }
     100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+}
+
+/* Pop-up love message */
+.love-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #ff9ec7;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 20px 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 1000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.love-msg.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 </style>
 </head>
@@ -107,6 +130,8 @@ body {
     <button onclick="prevSlide()">⬅️ Prev</button>
     <button onclick="nextSlide()">Next ➡️</button>
 </div>
+
+<div class="love-msg" id="loveMsg"></div>
 
 <script>
 let current = 0;
@@ -122,21 +147,31 @@ const slides = [
 ];
 
 const slideContainer = document.getElementById("slide");
+const loveMsg = document.getElementById("loveMsg");
 
 function showSlide(index) {
     const slide = slides[index];
     slideContainer.className = "slide-container fade-in " + slide.bg;
     slideContainer.innerHTML = slide.text;
 
-    // Optional: spawn magical hearts
+    // Spawn clickable hearts
     for(let i=0;i<5;i++){
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.style.left = Math.random()*100 + 'vw';
         heart.style.fontSize = (Math.random()*2+1) + 'em';
-        heart.innerText = '💗';
+        heart.innerText = '💖';
         document.body.appendChild(heart);
-        setTimeout(()=>heart.remove(), 5000);
+
+        // Click heart to show love message
+        heart.addEventListener('click', () => {
+            loveMsg.innerHTML = "I ❤️ You, Mayur!";
+            loveMsg.classList.add('show');
+            setTimeout(() => loveMsg.classList.remove('show'), 2000);
+            heart.remove();
+        });
+
+        setTimeout(() => heart.remove(), 5000);
     }
 }
 
@@ -149,6 +184,12 @@ function prevSlide(){
     current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
 }
+
+// Initialize first slide
+showSlide(current);
+
+// Automatic slide change every 7 seconds
+setInterval(nextSlide, 7000);
 </script>
 
 </body>
