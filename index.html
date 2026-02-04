@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine’s Day 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine’s Day!</h1>
+        <p>You are loved more than you know 💌</p>
+        <img src="images/heart.png" alt="Heart">
+        <button onclick="showMessage()">Click for a Love Message</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showMessage() {
+            const messages = [
+                "You make my heart smile ❤️",
+                "Every moment with you is precious 💕",
+                "Love is in the air because of you 🌹",
+                "You are my favorite everything 💖"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById("message").innerText = randomMessage;
+        }
+    </script>
+</body>
+</html>
