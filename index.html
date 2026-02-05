@@ -1,196 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine's Day, Hubby🙈😚🤍</title>
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Brush Script MT', cursive;
-    overflow: hidden;
-    background: #ffdde1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: background 1s ease;
-}
-
-.slide-container {
-    position: relative;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-    color: #000; /* Black text */
-    font-size: 1.8em;
-    min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1s ease, opacity 1s ease;
-}
-
-/* Magical transitions */
-.fade-in {
-    opacity: 0;
-    transform: scale(0.8) rotate(-5deg);
-    animation: fadeZoom 1s forwards;
-}
-
-@keyframes fadeZoom {
-    0% { opacity: 0; transform: scale(0.8) rotate(-5deg); }
-    50% { transform: scale(1.05) rotate(2deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0deg); }
-}
-
-/* Background themes for each slide */
-.bg1 { background: linear-gradient(to right, #ffe6f0, #ffb3c6); }
-.bg2 { background: linear-gradient(to right, #e0f7fa, #80deea); }
-.bg3 { background: linear-gradient(to right, #fff9c4, #ffe57f); }
-.bg4 { background: linear-gradient(to right, #f3e5f5, #ce93d8); }
-.bg5 { background: linear-gradient(to right, #e1bee7, #ba68c8); }
-.bg6 { background: linear-gradient(to right, #dcedc8, #aed581); }
-.bg7 { background: linear-gradient(to right, #ffccbc, #ff8a65); }
-
-/* Buttons */
-.nav {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-}
-
-.nav button {
-    padding: 12px 25px;
-    border: none;
-    background: #fff;
-    cursor: pointer;
-    font-size: 1em;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.nav button:hover {
-    transform: scale(1.2) rotate(5deg);
-    background: #ff9ec7;
-}
-
-/* Floating hearts */
-.heart {
-    position: absolute;
-    font-size: 1.2em;
-    animation: floatUp 5s linear infinite;
-    cursor: pointer;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(100vh) scale(1); opacity: 1; }
-    100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-}
-
-/* Pop-up love message */
-.love-msg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: #ff9ec7;
-    color: #fff;
-    font-size: 1.5em;
-    padding: 20px 40px;
-    border-radius: 25px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    text-align: center;
-    z-index: 1000;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0;
-}
-
-.love-msg.show {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>My Valentine – Mayur ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #ff6f91, #ff9671);
+      text-align: center;
+      color: white;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 42px;
+      margin-top: 30px;
+    }
+    h2 {
+      font-size: 26px;
+      color: #fff0f5;
+    }
+    .message {
+      background: rgba(255, 255, 255, 0.2);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .gallery img {
+      width: 250px;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    button {
+      background: #ff3366;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      margin: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      background: #ff1744;
+    }
+    #surprise {
+      display: none;
+      font-size: 22px;
+      margin: 20px;
+      color: #fffbe7;
+    }
+    .footer {
+      margin: 40px 0;
+      font-size: 20px;
+    }
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall 6s linear infinite;
+      color: #ffccd5;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-
-<div class="slide-container fade-in bg1" id="slide">
-    Happy Valentine's Day, Mayur 💖<br>My love, you are my moon 🌙 in the darkest nights, my diamond 💎, my everything 🤗.
-</div>
-
-<div class="nav">
-    <button onclick="prevSlide()">⬅️ Prev</button>
-    <button onclick="nextSlide()">Next ➡️</button>
-</div>
-
-<div class="love-msg" id="loveMsg"></div>
-
-<script>
-let current = 0;
-
-const slides = [
-    { text: "Happy Valentine's Day, Baby 🫂😚<br>My love, you are my moon 🌙 in the darkest nights, my diamond 💎, my everything 🤗.", bg: "bg1" },
-    { text: "Every time we fight, my heart aches 💔, but I never stop loving you. My struggles, my tears, my efforts were all for you ❤️.", bg: "bg2" },
-    { text: "Mayur, when I think of you, I feel magic ✨ in the air. You are my dream, my comfort, my hug 🤗, my laughter 😂, and my joy 💛.", bg: "bg3" },
-    { text: "Even when we have differences, my love for you grows stronger 💖. I cherish every memory, every smile, every moment 🌸.", bg: "bg4" },
-    { text: "I have shared my heart ❤️, my struggles 😢, and my love with you. You are the reason I smile every day 😊. You are my world 🌍.", bg: "bg5" },
-    { text: "🌈 I want to hold your hand 🤝 forever, to love you endlessly 💖. Nothing can change how much I adore you 💎.", bg: "bg6" },
-    { text: "My love for you is infinite ♾️, magical ✨, and pure 🤍. Happy Valentine's Day 💕! I love you now and always 🌙💌.", bg: "bg7" }
-];
-
-const slideContainer = document.getElementById("slide");
-const loveMsg = document.getElementById("loveMsg");
-
-function showSlide(index) {
-    const slide = slides[index];
-    slideContainer.className = "slide-container fade-in " + slide.bg;
-    slideContainer.innerHTML = slide.text;
-
-    // Spawn clickable hearts
-    for(let i=0;i<5;i++){
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.style.left = Math.random()*100 + 'vw';
-        heart.style.fontSize = (Math.random()*2+1) + 'em';
-        heart.innerText = '💖';
-        document.body.appendChild(heart);
-
-        // Click heart to show love message
-        heart.addEventListener('click', () => {
-            loveMsg.innerHTML = "I ❤️ You, Mayur!";
-            loveMsg.classList.add('show');
-            setTimeout(() => loveMsg.classList.remove('show'), 2000);
-            heart.remove();
-        });
-
-        setTimeout(() => heart.remove(), 5000);
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+  <h1>Happy Valentine’s Day ❤️</h1>
+  <h2>My Love, Mayur 💕</h2>
+  <div class="message">
+    <p>
+      Mayur, loving you feels like breathing — effortless and necessary.  
+      You walked into my life quietly, but you became my whole heart.
+    </p>
+    <p>
+      In your arms, I feel safe.  
+      In your smile, I find peace.  
+      In your love, I found my home.
+    </p>
+    <p>
+      No distance, no silence, no storm can ever change what I feel for you.
+      You are my today, my tomorrow, and my always.
+    </p>
+  </div>
+  <h2>Our Beautiful Memories 📸</h2>
+  <div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+    <img src="photo7.jpg">
+  </div>
+  <div class="message">
+    <p>
+      If I had a thousand hearts, I’d give all of them to you.  
+      If I had a thousand lives, I’d choose you in every one.
+    </p>
+    <p>
+      Thank you for being my love, my strength, my reason to smile.
+    </p>
+  </div>
+  <button onclick="showSurprise()">Click if you love me 💖</button>
+  <div id="surprise">
+    💌 I LOVE YOU MAYUR 💌 <br>
+    More than words. More than distance. Forever.
+  </div>
+  <div class="footer">
+    Forever yours 💕<br>
+    — Your Valentine ❤️
+  </div>
+  <script>
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
     }
-}
-
-function nextSlide(){
-    current = (current + 1) % slides.length;
-    showSlide(current);
-}
-
-function prevSlide(){
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-}
-
-// Initialize first slide
-showSlide(current);
-
-// Automatic slide change every 7 seconds
-setInterval(nextSlide, 7000);
-</script>
-
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
 </body>
 </html>
