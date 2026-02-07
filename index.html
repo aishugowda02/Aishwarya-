@@ -24,45 +24,45 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.3em;
     margin-bottom: 5px;
 }
 
 h2 {
     font-weight: normal;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-/* WHITE HEART */
+/* SMALLER WHITE HEART */
 .heart {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     background: white;
     position: relative;
     margin: auto;
     transform: rotate(-45deg);
     cursor: pointer;
-    animation: beat 1.5s infinite;
-    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    animation: beat 1.6s infinite;
+    box-shadow: 0 0 18px rgba(255,255,255,0.8);
 }
 
 .heart::before,
 .heart::after {
     content: "";
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     background: white;
     border-radius: 50%;
     position: absolute;
 }
 
 .heart::before {
-    top: -60px;
+    top: -40px;
     left: 0;
 }
 
 .heart::after {
-    left: 60px;
+    left: 40px;
     top: 0;
 }
 
@@ -73,11 +73,11 @@ h2 {
 }
 
 .message {
-    margin-top: 30px;
-    font-size: 1.2em;
-    max-width: 340px;
+    margin-top: 25px;
+    font-size: 1.1em;
+    max-width: 320px;
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.85);
     transition: all 0.6s ease;
 }
 
@@ -90,7 +90,7 @@ h2 {
 .float {
     position: absolute;
     bottom: -20px;
-    font-size: 18px;
+    font-size: 16px;
     animation: rise 5s linear infinite;
 }
 
@@ -105,8 +105,8 @@ h2 {
 <body>
 
 <div class="container">
-    <h1>Happy Rose Day 🌹</h1>
-    <h2>My Love, Mayur🖇️</h2>
+    <h1>Happy Rose Day🌹</h1>
+    <h2>My Love, Mayur🖇️🫂</h2>
 
     <div class="heart" onclick="showMessage()"></div>
 
@@ -115,11 +115,11 @@ h2 {
 
 <script>
 const messages = [
-    "This white heart holds all my love for you 🤍",
-    "Even without roses, my heart blooms only for you 🌸",
-    "No matter what happens, my heart always chooses you 🥺🫂",
-    "You are my peace, my madness, my forever 💫",
-    "Happy Rose Day, Mayur — this heart is yours, always 💎"
+    "This little white heart carries a very big love for you 💗🌜",
+    "Even in its silence, my heart only speaks your name 😚",
+    "No matter what, my heart always finds its way back to you 🥺🤍",
+    "You are my calm, my chaos, my forever 🖇️🫂",
+    "Happy Rose Day, Mayur — this heart is forever yours 🤍"
 ];
 
 let index = 0;
@@ -144,7 +144,7 @@ setInterval(() => {
     h.style.animationDuration = (3 + Math.random() * 3) + "s";
     document.body.appendChild(h);
     setTimeout(() => h.remove(), 6000);
-}, 700);
+}, 800);
 </script>
 
 </body>
