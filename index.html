@@ -3,90 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day, My Love 🌹</title>
+<title>Happy Rose Day ❤️</title>
 
 <style>
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+    background: radial-gradient(circle at top, #ff758f, #c9184a);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     font-family: 'Segoe UI', cursive;
     overflow: hidden;
 }
 
 .container {
     text-align: center;
-    color: white;
+    color: #fff;
+    padding: 20px;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
-    animation: glow 2s infinite alternate;
+    margin-bottom: 5px;
 }
 
 h2 {
     font-weight: normal;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .rose {
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle at center, #ff1e56, #b3003b);
-    border-radius: 50%;
-    position: relative;
+    width: 200px;
     cursor: pointer;
-    box-shadow: 0 0 25px rgba(255,255,255,0.6);
-    animation: float 3s ease-in-out infinite;
+    transition: transform 0.4s ease;
 }
 
-.rose::before,
-.rose::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, #ff1e56, #b3003b);
-    border-radius: 50%;
-}
-
-.rose::before {
-    top: -30px;
-    left: 20px;
-}
-
-.rose::after {
-    top: 20px;
-    left: -30px;
+.rose:hover {
+    transform: scale(1.05);
 }
 
 .message {
-    margin-top: 25px;
-    font-size: 1.1em;
-    max-width: 320px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    max-width: 350px;
     opacity: 0;
-    transform: scale(0.5);
+    transform: translateY(20px);
     transition: all 0.6s ease;
 }
 
 .message.show {
     opacity: 1;
-    transform: scale(1);
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px #fff; }
-    to { text-shadow: 0 0 20px #ffd6e0; }
+    transform: translateY(0);
 }
 
 /* Floating hearts */
@@ -95,7 +63,6 @@ h2 {
     bottom: -20px;
     font-size: 20px;
     animation: rise 5s linear infinite;
-    opacity: 0.7;
 }
 
 @keyframes rise {
@@ -112,35 +79,10 @@ h2 {
     <h1>Happy Rose Day 🌹</h1>
     <h2>My Love, Mayur ❤️</h2>
 
-    <div class="rose" onclick="showMessage()"></div>
-
-    <div class="message" id="msg">
-        My love, this rose is a small symbol of my heart 💕  
-        Just like this rose, my love for you blooms more every day.  
-        No matter how many fights we have, my heart always chooses you.  
-        Happy Rose Day, my forever 🌹🤍
-    </div>
-</div>
-
-<script>
-function showMessage() {
-    document.getElementById("msg").classList.toggle("show");
-}
-
-// Floating hearts
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}, 500);
-</script>
-
-</body>
-</html>
+    <!-- SVG ROSE -->
+    <svg class="rose" onclick="showMessage()" viewBox="0 0 200 300">
+        <!-- Stem -->
+        <rect x="96" y="120" width="8" height="150" fill="#2d6a4f"/>
+        
+        <!-- Leaves -->
+        <ellipse cx="70" cy="180" rx="30" ry="15" fill="#40916c" transform="rotate
