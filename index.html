@@ -1,141 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Valentine – Mayur ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #ff6f91, #ff9671);
-      text-align: center;
-      color: white;
-      overflow-x: hidden;
-    }
-    h1 {
-      font-size: 42px;
-      margin-top: 30px;
-    }
-    h2 {
-      font-size: 26px;
-      color: #fff0f5;
-    }
-    .message {
-      background: rgba(255, 255, 255, 0.2);
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 800px;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-    .gallery img {
-      width: 250px;
-      margin: 10px;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-    button {
-      background: #ff3366;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 30px;
-      font-size: 18px;
-      color: white;
-      cursor: pointer;
-      margin: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    button:hover {
-      background: #ff1744;
-    }
-    #surprise {
-      display: none;
-      font-size: 22px;
-      margin: 20px;
-      color: #fffbe7;
-    }
-    .footer {
-      margin: 40px 0;
-      font-size: 20px;
-    }
-    .heart {
-      position: fixed;
-      top: -10px;
-      font-size: 20px;
-      animation: fall 6s linear infinite;
-      color: #ffccd5;
-    }
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day, My Love 🌹</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4d6d, #ff9aa2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', cursive;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.6em;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+h2 {
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.rose {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, #ff1e56, #b3003b);
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(255,255,255,0.6);
+}
+
+.rose::before,
+.rose::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ff1e56, #b3003b);
+    border-radius: 50%;
+}
+
+.rose::before {
+    top: -35px;
+    left: 20px;
+}
+
+.rose::after {
+    top: 20px;
+    left: -35px;
+}
+
+.message {
+    margin-top: 25px;
+    font-size: 1.15em;
+    max-width: 340px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.6s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: rise 5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+</style>
 </head>
+
 <body>
-  <!-- Background Music -->
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-  <h1>Happy Valentine’s Day ❤️</h1>
-  <h2>My Love, Mayur 💕</h2>
-  <div class="message">
-    <p>
-      Mayur, loving you feels like breathing — effortless and necessary.  
-      You walked into my life quietly, but you became my whole heart.
-    </p>
-    <p>
-      In your arms, I feel safe.  
-      In your smile, I find peace.  
-      In your love, I found my home.
-    </p>
-    <p>
-      No distance, no silence, no storm can ever change what I feel for you.
-      You are my today, my tomorrow, and my always.
-    </p>
-  </div>
-  <h2>Our Beautiful Memories 📸</h2>
-  <div class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <img src="photo4.jpg">
-    <img src="photo5.jpg">
-    <img src="photo6.jpg">
-    <img src="photo7.jpg">
-  </div>
-  <div class="message">
-    <p>
-      If I had a thousand hearts, I’d give all of them to you.  
-      If I had a thousand lives, I’d choose you in every one.
-    </p>
-    <p>
-      Thank you for being my love, my strength, my reason to smile.
-    </p>
-  </div>
-  <button onclick="showSurprise()">Click if you love me 💖</button>
-  <div id="surprise">
-    💌 I LOVE YOU MAYUR 💌 <br>
-    More than words. More than distance. Forever.
-  </div>
-  <div class="footer">
-    Forever yours 💕<br>
-    — Your Valentine ❤️
-  </div>
-  <script>
-    function showSurprise() {
-      document.getElementById("surprise").style.display = "block";
-    }
-    // Floating hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 500);
-  </script>
+
+<div class="container">
+    <h1>Happy Rose Day 🌹</h1>
+    <h2>My Love, Mayur ❤️</h2>
+
+    <div class="rose" onclick="showMessage()"></div>
+
+    <div class="message" id="msg"></div>
+</div>
+
+<script>
+const messages = [
+    "This rose is not just a flower, my love… it’s my heart opening itself to you 🌹❤️",
+    "Every petal of this rose carries a promise — to love you, choose you, and stand by you forever 💕",
+    "Even on days we fight, my heart never fights loving you. It only loves you more 🥺❤️",
+    "You are the most beautiful feeling I have ever known, and I thank my heart every day for choosing you 🌙✨",
+    "If love had a shape, it would look like this rose — soft, deep, and completely yours 🌹🤍",
+    "No matter how many roses the world gives, my heart will always belong to you alone 💖",
+    "Happy Rose Day, my forever love. You are my today, my tomorrow, and my always 🌹💫"
+];
+
+let index = 0;
+
+function showMessage() {
+    const msg = document.getElementById("msg");
+    msg.classList.remove("show");
+
+    setTimeout(() => {
+        msg.innerHTML = messages[index];
+        msg.classList.add("show");
+        index = (index + 1) % messages.length;
+    }, 300);
+}
+
+// floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
 </body>
 </html>
