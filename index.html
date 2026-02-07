@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day ❤️</title>
+<title>Happy Rose Day 🤍</title>
 
 <style>
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at top, #ff758f, #c9184a);
+    background: linear-gradient(135deg, #ff758f, #c9184a);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
 
 .container {
     text-align: center;
-    color: #fff;
+    color: white;
     padding: 20px;
 }
 
@@ -30,38 +30,67 @@ h1 {
 
 h2 {
     font-weight: normal;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.rose {
-    width: 200px;
+/* WHITE HEART */
+.heart {
+    width: 120px;
+    height: 120px;
+    background: white;
+    position: relative;
+    margin: auto;
+    transform: rotate(-45deg);
     cursor: pointer;
-    transition: transform 0.4s ease;
+    animation: beat 1.5s infinite;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
 }
 
-.rose:hover {
-    transform: scale(1.05);
+.heart::before,
+.heart::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+@keyframes beat {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.08); }
+    100% { transform: rotate(-45deg) scale(1); }
 }
 
 .message {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 1.2em;
-    max-width: 350px;
+    max-width: 340px;
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.8);
     transition: all 0.6s ease;
 }
 
 .message.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
 }
 
-/* Floating hearts */
-.heart {
+/* floating hearts */
+.float {
     position: absolute;
     bottom: -20px;
-    font-size: 20px;
+    font-size: 18px;
     animation: rise 5s linear infinite;
 }
 
@@ -77,12 +106,46 @@ h2 {
 
 <div class="container">
     <h1>Happy Rose Day 🌹</h1>
-    <h2>My Love, Mayur ❤️</h2>
+    <h2>My Love, Mayur🖇️</h2>
 
-    <!-- SVG ROSE -->
-    <svg class="rose" onclick="showMessage()" viewBox="0 0 200 300">
-        <!-- Stem -->
-        <rect x="96" y="120" width="8" height="150" fill="#2d6a4f"/>
-        
-        <!-- Leaves -->
-        <ellipse cx="70" cy="180" rx="30" ry="15" fill="#40916c" transform="rotate
+    <div class="heart" onclick="showMessage()"></div>
+
+    <div class="message" id="msg"></div>
+</div>
+
+<script>
+const messages = [
+    "This white heart holds all my love for you 🤍",
+    "Even without roses, my heart blooms only for you 🌸",
+    "No matter what happens, my heart always chooses you 🥺🫂",
+    "You are my peace, my madness, my forever 💫",
+    "Happy Rose Day, Mayur — this heart is yours, always 💎"
+];
+
+let index = 0;
+
+function showMessage() {
+    const msg = document.getElementById("msg");
+    msg.classList.remove("show");
+
+    setTimeout(() => {
+        msg.innerHTML = messages[index];
+        msg.classList.add("show");
+        index = (index + 1) % messages.length;
+    }, 200);
+}
+
+// floating mini hearts
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "float";
+    h.innerHTML = "🤍";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}, 700);
+</script>
+
+</body>
+</html>
