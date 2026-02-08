@@ -3,148 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day 🤍</title>
+<title>Happy Proposal Day ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff758f, #c9184a);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', cursive;
-    overflow: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Georgia', cursive;
 }
 
-.container {
-    text-align: center;
-    color: white;
-    padding: 20px;
+body{
+    overflow-x:hidden;
+    background:#000;
+    color:white;
 }
 
-h1 {
-    font-size: 2.3em;
-    margin-bottom: 5px;
+/* Sections */
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:40px;
+    text-align:center;
 }
 
-h2 {
-    font-weight: normal;
-    margin-bottom: 25px;
+/* Themes */
+.theme1{ background:linear-gradient(135deg,#ff4d6d,#ff758f); }
+.theme2{ background:linear-gradient(135deg,#3a0ca3,#7209b7); }
+.theme3{ background:linear-gradient(135deg,#03045e,#0077b6); }
+.theme4{ background:linear-gradient(135deg,#1b4332,#2d6a4f); }
+.theme5{ background:linear-gradient(135deg,#240046,#5a189a); }
+
+/* Titles */
+h1{
+    font-size:2.6em;
+    margin-bottom:20px;
+    text-shadow:0 0 10px rgba(255,255,255,0.6);
 }
 
-/* SMALLER WHITE HEART */
-.heart {
-    width: 80px;
-    height: 80px;
-    background: white;
-    position: relative;
-    margin: auto;
-    transform: rotate(-45deg);
-    cursor: pointer;
-    animation: beat 1.6s infinite;
-    box-shadow: 0 0 18px rgba(255,255,255,0.8);
+/* Paragraphs */
+p{
+    font-size:1.15em;
+    line-height:1.8;
+    max-width:900px;
+}
+
+/* Heart */
+.heart{
+    width:120px;
+    height:120px;
+    background:red;
+    position:relative;
+    transform:rotate(-45deg);
+    margin:30px;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
 }
 
 .heart::before,
-.heart::after {
-    content: "";
-    width: 80px;
-    height: 80px;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
+.heart::after{
+    content:"";
+    width:120px;
+    height:120px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
 }
 
-.heart::before {
-    top: -40px;
-    left: 0;
+.heart::before{
+    top:-60px;
+    left:0;
 }
 
-.heart::after {
-    left: 40px;
-    top: 0;
+.heart::after{
+    left:60px;
+    top:0;
 }
 
-@keyframes beat {
-    0% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.08); }
-    100% { transform: rotate(-45deg) scale(1); }
+@keyframes pulse{
+    0%{ transform:scale(1) rotate(-45deg); }
+    50%{ transform:scale(1.1) rotate(-45deg); }
+    100%{ transform:scale(1) rotate(-45deg); }
 }
 
-.message {
-    margin-top: 25px;
-    font-size: 1.1em;
-    max-width: 320px;
-    opacity: 0;
-    transform: scale(0.85);
-    transition: all 0.6s ease;
+/* Hidden message */
+.message{
+    display:none;
+    margin-top:25px;
+    font-size:1.1em;
+    animation:fadeIn 1s forwards;
 }
 
-.message.show {
-    opacity: 1;
-    transform: scale(1);
+@keyframes fadeIn{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
-/* floating hearts */
-.float {
-    position: absolute;
-    bottom: -20px;
-    font-size: 16px;
-    animation: rise 5s linear infinite;
+/* Button */
+button{
+    padding:12px 25px;
+    font-size:1em;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:black;
+    margin-top:30px;
 }
 
-@keyframes rise {
-    0% { transform: translateY(0); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-120vh); opacity: 0; }
+button:hover{
+    background:#ffe5ec;
+}
+
+/* Floating hearts */
+.floating{
+    position:fixed;
+    bottom:-20px;
+    color:rgba(255,255,255,0.6);
+    animation:float 8s linear infinite;
+    font-size:20px;
+}
+
+@keyframes float{
+    0%{ transform:translateY(0); opacity:1; }
+    100%{ transform:translateY(-120vh); opacity:0; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Happy Rose Day🌹</h1>
-    <h2>My Love, Mayur🖇️🫂</h2>
+<!-- SECTION 1 -->
+<div class="section theme1">
+<h1>Happy Proposal Day, My Love 💖</h1>
+<p>
+From the very first moment you entered my life, something inside me quietly changed.  
+I didn’t realize it immediately, but slowly you became my comfort, my habit, my peace.  
+Every smile of yours feels like home, and every silence with you feels safe.  
+I may not say it every day, but you are my favorite thought when I wake up  
+and my last prayer before I sleep.
+</p>
+</div>
 
-    <div class="heart" onclick="showMessage()"></div>
+<!-- SECTION 2 -->
+<div class="section theme2">
+<h1>Tap the Heart ❤️</h1>
+<div class="heart" onclick="openMsg('m1')"></div>
+<div class="message" id="m1">
+<p>
+I fell in love with you not just for who you are,  
+but for who I become when I’m with you.  
+You make my worst days feel lighter  
+and my best days feel unforgettable.
+</p>
+</div>
+</div>
 
-    <div class="message" id="msg"></div>
+<!-- SECTION 3 -->
+<div class="section theme3">
+<h1>Another Heart… Another Truth 💕</h1>
+<div class="heart" onclick="openMsg('m2')"></div>
+<div class="message" id="m2">
+<p>
+I love the way you care, the way you get angry,  
+the way you fight and still never leave.  
+Even in misunderstandings, my heart always chooses you.  
+No matter how many storms come, I want to face them with you.
+</p>
+</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section theme4">
+<h1>What You Mean To Me 🌙</h1>
+<p>
+You are my today, my tomorrow, and every dream in between.  
+With you, love feels calm, deep, and real.  
+I don’t want a perfect story — I want a real one,  
+with laughter, arguments, growth, and endless love… with you.
+</p>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section theme5">
+<h1>So… Here I Am 💍</h1>
+<div class="heart" onclick="openMsg('m3')"></div>
+<div class="message" id="m3">
+<p>
+Will you hold my hand not just today,  
+but for all the days that follow?  
+Will you be my forever, my always, my love?  
+💖 I want you. I choose you. I love you. 💖
+</p>
+</div>
+
+<button onclick="alert('She already said YES in her heart ❤️')">
+Tap if your answer is YES 💘
+</button>
 </div>
 
 <script>
-const messages = [
-    "This little white heart carries a very big love for you 💗🌜",
-    "Even in its silence, my heart only speaks your name 😚",
-    "No matter what, my heart always finds its way back to you 🥺🤍",
-    "You are my calm, my chaos, my forever 🖇️🫂",
-    "Happy Rose Day, Mayur — this heart is forever yours 🤍"
-];
-
-let index = 0;
-
-function showMessage() {
-    const msg = document.getElementById("msg");
-    msg.classList.remove("show");
-
-    setTimeout(() => {
-        msg.innerHTML = messages[index];
-        msg.classList.add("show");
-        index = (index + 1) % messages.length;
-    }, 200);
+function openMsg(id){
+    document.getElementById(id).style.display="block";
 }
 
-// floating mini hearts
-setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "float";
-    h.innerHTML = "🤍";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.animationDuration = (3 + Math.random() * 3) + "s";
+/* Floating hearts */
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="floating";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(5+Math.random()*5)+"s";
     document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
-}, 800);
+    setTimeout(()=>{ h.remove(); },10000);
+},500);
 </script>
 
 </body>
