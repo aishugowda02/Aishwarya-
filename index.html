@@ -1,17 +1,161 @@
-int sensorPin = 2; // IR Sensor connected to Pin 2
-int motorPin = 9;  // Fan Motor connected to Pin 9
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine 🫂🤍</title>
 
-void setup() {
-  pinMode(sensorPin, INPUT);
-  pinMode(motorPin, OUTPUT);
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
 }
 
-void loop() {
-  int val = digitalRead(sensorPin);
-  
-  if (val == LOW) { // If car is detected
-    digitalWrite(motorPin, HIGH); // Turn fan ON
-  } else {
-    digitalWrite(motorPin, LOW);  // Turn fan OFF
-  }
+.page {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    color: white;
 }
+
+.active {
+    display: block;
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #ff4d6d;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: auto;
+}
+</style>
+
+<script>
+let currentPage = 0;
+function nextPage() {
+    const pages = document.querySelectorAll('.page');
+    pages[currentPage].classList.remove('active');
+    currentPage++;
+    if (currentPage < pages.length) {
+        pages[currentPage].classList.add('active');
+    }
+}
+</script>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+<h1>To My Love 🤞🤍</h1>
+<p>
+Happy Valentine's Day to the one who lives inside my heart every second...  
+You may not always see how much I love you, but my silence carries storms of emotions.  
+Even when I feel tired, even when I feel ignored, my heart still whispers only your name.  
+You are not just a person in my life… you are the feeling I never want to lose.  
+❤️😚🖇️
+</p>
+<button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+<h1>What I Never Say 💎🖇️</h1>
+<p>
+Sometimes I act strong, but the truth is… I just want you to care.  
+I want you to fear losing me the way I fear losing you.  
+I want you to hold me tighter when I become quiet.  
+Not because I am weak… but because I love deeply.  
+If I ever fight, it's not to leave… it's because I want us to stay.  
+🌍🫂❤️
+</p>
+<button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+<h1>🤍😚</h1>
+<p>
+Just imagine two teddy bears hugging and kissing under the stars…  
+That’s how I see us.  
+Cute. Soft. Pure.  
+Even when the world feels heavy, your presence feels like home.  
+I don’t need perfect love… I just need your real love.  
+💗🥺🖇️
+</p>
+<button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+<h1>Mayur🪐🌜</h1>
+<p>
+Yes… this is for you, Mayur.  
+You might think I will never leave.  
+Maybe you feel too confident that I will always stay.  
+But please understand… I stay not because I have no choice…  
+I stay because I choose you every single day.  
+I just need you to choose me too.  
+That’s all my heart asks for.  
+🫂
+</p>
+<button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+<h1> My Wish 🤞❤️🖇️</h1>
+<p>
+I don’t want a perfect fairytale.  
+I don’t want big promises.  
+I just want effort.  
+Little messages. Little care. Little reassurance.  
+Because even the strongest girl gets tired of being the only one fighting.  
+Hold me, understand me, and love me softly.  
+Let’s grow together, not apart.  
+💍🤞🌜
+</p>
+<button onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+<h1>Forever, If You Want 🥺❤️</h1>
+<p>
+If you are ready to love me with your whole heart…  
+I am ready to give you mine completely.  
+Not half. Not temporary.  
+But something magical, something rare, something ours.  
+Happy Valentine's Day, my love.  
+🤍🖇️🫂🪐
+</p>
+</div>
+
+</body>
+  </html>
