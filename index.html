@@ -1,161 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Valentine 🫂🤍</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You are special!</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --primary-pink: #ff4d94;
+            --secondary-purple: #2d0a31;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
-}
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
 
-.page {
-    display: none;
-    height: 100vh;
-    width: 100%;
-    text-align: center;
-    padding: 40px;
-    box-sizing: border-box;
-    color: white;
-}
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+        }
 
-.active {
-    display: block;
-    animation: fade 1.5s;
-}
+        /* Screen States */
+        .screen { display: none; }
+        .active { display: block; animation: fadeIn 0.8s ease-in; }
 
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+        /* Styles for specific elements */
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-pink);
+            margin-bottom: 20px;
+        }
 
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background-color: white;
-    color: #ff4d6d;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-}
+        button {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
 
-h1 {
-    font-size: 40px;
-}
+        button:hover { transform: scale(1.05); }
 
-p {
-    font-size: 20px;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: auto;
-}
-</style>
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background: #333;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
 
-<script>
-let currentPage = 0;
-function nextPage() {
-    const pages = document.querySelectorAll('.page');
-    pages[currentPage].classList.remove('active');
-    currentPage++;
-    if (currentPage < pages.length) {
-        pages[currentPage].classList.add('active');
-    }
-}
-</script>
+        .progress-bar {
+            width: 0%;
+            height: 15px;
+            background: var(--primary-pink);
+            border-radius: 20px;
+            transition: width 0.1s;
+        }
+
+        /* Message List */
+        .message-box {
+            background: var(--secondary-purple);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-pink);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .show-msg {
+            animation: slideUp 0.5s forwards;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-
 <body>
 
-<!-- PAGE 1 -->
-<div class="page active">
-<h1>To My Love 🤞🤍</h1>
-<p>
-Happy Valentine's Day to the one who lives inside my heart every second...  
-You may not always see how much I love you, but my silence carries storms of emotions.  
-Even when I feel tired, even when I feel ignored, my heart still whispers only your name.  
-You are not just a person in my life… you are the feeling I never want to lose.  
-❤️😚🖇️
-</p>
-<button onclick="nextPage()">Next ➜</button>
-</div>
+    <div class="container">
+        <div id="screen1" class="screen active">
+            <img src="https://via.placeholder.com/100" alt="Cute Icon" class="profile-pic">
+            <h1>Hey Beautiful</h1>
+            <p>Do you even know how cute you are?</p>
+            <button onclick="nextScreen(2); startLoading();">Open My Heart ❤️</button>
+        </div>
 
-<!-- PAGE 2 -->
-<div class="page">
-<h1>What I Never Say 💎🖇️</h1>
-<p>
-Sometimes I act strong, but the truth is… I just want you to care.  
-I want you to fear losing me the way I fear losing you.  
-I want you to hold me tighter when I become quiet.  
-Not because I am weak… but because I love deeply.  
-If I ever fight, it's not to leave… it's because I want us to stay.  
-🌍🫂❤️
-</p>
-<button onclick="nextPage()">Next ➜</button>
-</div>
+        <div id="screen2" class="screen">
+            <h2 id="loading-text">Measuring your cuteness...</h2>
+            <div class="progress-container">
+                <div id="bar" class="progress-bar"></div>
+            </div>
+            <h1 id="percentage">0%</h1>
+        </div>
 
-<!-- PAGE 3 -->
-<div class="page">
-<h1>🤍😚</h1>
-<p>
-Just imagine two teddy bears hugging and kissing under the stars…  
-That’s how I see us.  
-Cute. Soft. Pure.  
-Even when the world feels heavy, your presence feels like home.  
-I don’t need perfect love… I just need your real love.  
-💗🥺🖇️
-</p>
-<button onclick="nextPage()">Next ➜</button>
-</div>
+        <div id="screen3" class="screen">
+            <h2>Just for you</h2>
+            <div id="msg1" class="message-box">You look adorable</div>
+            <div id="msg2" class="message-box">You have the sweetest vibe</div>
+            <div id="msg3" class="message-box">You make everything feel special</div>
+            <button onclick="nextScreen(4)">See more →</button>
+        </div>
 
-<!-- PAGE 4 -->
-<div class="page">
-<h1>Mayur🪐🌜</h1>
-<p>
-Yes… this is for you, Mayur.  
-You might think I will never leave.  
-Maybe you feel too confident that I will always stay.  
-But please understand… I stay not because I have no choice…  
-I stay because I choose you every single day.  
-I just need you to choose me too.  
-That’s all my heart asks for.  
-🫂
-</p>
-<button onclick="nextPage()">Next ➜</button>
-</div>
+        <div id="screen4" class="screen">
+            <div style="background: white; color: black; padding: 20px; border-radius: 15px;">
+                <p>I just wanted to tell you something... you are really special in a way that's hard to explain. Stay just the way you are.</p>
+                <h3 style="color: var(--primary-pink);">You'll always be special to me</h3>
+            </div>
+        </div>
+    </div>
 
-<!-- PAGE 5 -->
-<div class="page">
-<h1> My Wish 🤞❤️🖇️</h1>
-<p>
-I don’t want a perfect fairytale.  
-I don’t want big promises.  
-I just want effort.  
-Little messages. Little care. Little reassurance.  
-Because even the strongest girl gets tired of being the only one fighting.  
-Hold me, understand me, and love me softly.  
-Let’s grow together, not apart.  
-💍🤞🌜
-</p>
-<button onclick="nextPage()">Next ➜</button>
-</div>
+    <script>
+        function nextScreen(screenNum) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('screen' + screenNum).classList.add('active');
+        }
 
-<!-- PAGE 6 -->
-<div class="page">
-<h1>Forever, If You Want 🥺❤️</h1>
-<p>
-If you are ready to love me with your whole heart…  
-I am ready to give you mine completely.  
-Not half. Not temporary.  
-But something magical, something rare, something ours.  
-Happy Valentine's Day, my love.  
-🤍🖇️🫂🪐
-</p>
-</div>
+        function startLoading() {
+            let width = 0;
+            let bar = document.getElementById('bar');
+            let perc = document.getElementById('percentage');
+            let interval = setInterval(() => {
+                if (width >= 120) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        nextScreen(3);
+                        showMessages();
+                    }, 1000);
+                } else {
+                    width++;
+                    bar.style.width = (width > 100 ? 100 : width) + '%';
+                    perc.innerText = width + '%';
+                    if(width === 101) {
+                        document.getElementById('loading-text').innerText = "WARNING: TOO CUTE TO HANDLE!";
+                        document.getElementById('loading-text').style.color = "#ff4d94";
+                    }
+                }
+            }, 30);
+        }
 
+        function showMessages() {
+            setTimeout(() => document.getElementById('msg1').classList.add('show-msg'), 500);
+            setTimeout(() => document.getElementById('msg2').classList.add('show-msg'), 1500);
+            setTimeout(() => document.getElementById('msg3').classList.add('show-msg'), 2500);
+        }
+    </script>
 </body>
-  </html>
+</html>
