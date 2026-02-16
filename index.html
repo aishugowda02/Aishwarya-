@@ -1,166 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You are special!</title>
-    <style>
-        :root {
-            --bg-color: #0d0d0d;
-            --primary-pink: #ff4d94;
-            --secondary-purple: #2d0a31;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
 
-        body {
-            background-color: var(--bg-color);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            text-align: center;
-        }
+<style>
+:root {
+    --bg-color: #0d0d0d;
+    --primary-pink: #ff4d94;
+    --soft-pink: #ff85b3;
+}
 
-        .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-        }
+body {
+    margin: 0;
+    background: var(--bg-color);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
 
-        /* Screen States */
-        .screen { display: none; }
-        .active { display: block; animation: fadeIn 0.8s ease-in; }
+.container {
+    width: 90%;
+    max-width: 420px;
+}
 
-        /* Styles for specific elements */
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid var(--primary-pink);
-            margin-bottom: 20px;
-        }
+.screen { display: none; }
+.active { display: block; animation: fade 1s ease; }
 
-        button {
-            background: var(--primary-pink);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
+button {
+    background: var(--primary-pink);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
 
-        button:hover { transform: scale(1.05); }
+button:hover { transform: scale(1.05); }
 
-        /* Progress Bar */
-        .progress-container {
-            width: 100%;
-            background: #333;
-            border-radius: 20px;
-            margin: 20px 0;
-        }
+.progress-container {
+    width: 100%;
+    background: #333;
+    border-radius: 20px;
+    margin: 20px 0;
+}
 
-        .progress-bar {
-            width: 0%;
-            height: 15px;
-            background: var(--primary-pink);
-            border-radius: 20px;
-            transition: width 0.1s;
-        }
+.progress-bar {
+    width: 0%;
+    height: 15px;
+    background: var(--primary-pink);
+    border-radius: 20px;
+}
 
-        /* Message List */
-        .message-box {
-            background: var(--secondary-purple);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-pink);
-            text-align: left;
-            opacity: 0;
-            transform: translateY(10px);
-        }
+.message-box {
+    background: #1a1a1a;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid var(--primary-pink);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+}
 
-        .show-msg {
-            animation: slideUp 0.5s forwards;
-        }
+.show { animation: slide 0.6s forwards; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
-    </style>
+@keyframes fade { from{opacity:0;} to{opacity:1;} }
+@keyframes slide { to{opacity:1; transform:translateY(0);} }
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    color: var(--soft-pink);
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity:1; }
+    100% { transform: translateY(-10vh); opacity:0; }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div id="screen1" class="screen active">
-            <img src="https://via.placeholder.com/100" alt="Cute Icon" class="profile-pic">
-            <h1>Hey Beautiful</h1>
-            <p>Do you even know how cute you are?</p>
-            <button onclick="nextScreen(2); startLoading();">Open My Heart ❤️</button>
-        </div>
+<div class="container">
 
-        <div id="screen2" class="screen">
-            <h2 id="loading-text">Measuring your cuteness...</h2>
-            <div class="progress-container">
-                <div id="bar" class="progress-bar"></div>
-            </div>
-            <h1 id="percentage">0%</h1>
-        </div>
+<!-- Screen 1 -->
+<div id="screen1" class="screen active">
+    <h1>Hey My Love 💕</h1>
+    <p>Before you continue… just know this is made only for you.</p>
+    <button onclick="next(2); startLoading();">Open My Heart ❤️</button>
+</div>
 
-        <div id="screen3" class="screen">
-            <h2>Just for you</h2>
-            <div id="msg1" class="message-box">You look adorable</div>
-            <div id="msg2" class="message-box">You have the sweetest vibe</div>
-            <div id="msg3" class="message-box">You make everything feel special</div>
-            <button onclick="nextScreen(4)">See more →</button>
-        </div>
-
-        <div id="screen4" class="screen">
-            <div style="background: white; color: black; padding: 20px; border-radius: 15px;">
-                <p>I just wanted to tell you something... you are really special in a way that's hard to explain. Stay just the way you are.</p>
-                <h3 style="color: var(--primary-pink);">You'll always be special to me</h3>
-            </div>
-        </div>
+<!-- Screen 2 -->
+<div id="screen2" class="screen">
+    <h2 id="loadText">Checking how much you mean to me...</h2>
+    <div class="progress-container">
+        <div id="bar" class="progress-bar"></div>
     </div>
+    <h1 id="percent">0%</h1>
+</div>
 
-    <script>
-        function nextScreen(screenNum) {
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.getElementById('screen' + screenNum).classList.add('active');
-        }
+<!-- Screen 3 -->
+<div id="screen3" class="screen">
+    <h2>Things I Feel 🥹</h2>
+    <div id="m1" class="message-box">You make my heart calm even when my mind is chaos.</div>
+    <div id="m2" class="message-box">Even when we fight, I never stop choosing you.</div>
+    <div id="m3" class="message-box">You are not perfect… but you are perfect for me.</div>
+    <button onclick="next(4)">See More →</button>
+</div>
 
-        function startLoading() {
-            let width = 0;
-            let bar = document.getElementById('bar');
-            let perc = document.getElementById('percentage');
-            let interval = setInterval(() => {
-                if (width >= 120) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        nextScreen(3);
-                        showMessages();
-                    }, 1000);
-                } else {
-                    width++;
-                    bar.style.width = (width > 100 ? 100 : width) + '%';
-                    perc.innerText = width + '%';
-                    if(width === 101) {
-                        document.getElementById('loading-text').innerText = "WARNING: TOO CUTE TO HANDLE!";
-                        document.getElementById('loading-text').style.color = "#ff4d94";
-                    }
-                }
-            }, 30);
-        }
+<!-- Screen 4 -->
+<div id="screen4" class="screen">
+    <h2>Even When…</h2>
+    <div id="m4" class="message-box">Even when you act cold… I still care.</div>
+    <div id="m5" class="message-box">Even when you ignore me… I still wait.</div>
+    <div id="m6" class="message-box">Because loving you is not temporary for me.</div>
+    <button onclick="next(5)">One Last Thing ❤️</button>
+</div>
 
-        function showMessages() {
-            setTimeout(() => document.getElementById('msg1').classList.add('show-msg'), 500);
-            setTimeout(() => document.getElementById('msg2').classList.add('show-msg'), 1500);
-            setTimeout(() => document.getElementById('msg3').classList.add('show-msg'), 2500);
+<!-- Screen 5 -->
+<div id="screen5" class="screen">
+    <div style="background:white;color:black;padding:20px;border-radius:15px;">
+        <h2 style="color:#ff4d94;">Mayur ❤️</h2>
+        <p>
+            I don’t know what future holds…  
+            But I know one thing —  
+            You are special to me in a way I can’t explain.  
+            You are my safe place, my overthinking reason,  
+            and my favorite person.
+        </p>
+        <h3>Stay with me… just like this 💕</h3>
+    </div>
+</div>
+
+</div>
+
+<!-- Background Music (optional – replace link with any mp3 URL) -->
+<audio autoplay loop>
+    <source src="" type="audio/mp3">
+</audio>
+
+<script>
+function next(n){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById('screen'+n).classList.add('active');
+}
+
+function startLoading(){
+    let width=0;
+    let bar=document.getElementById('bar');
+    let percent=document.getElementById('percent');
+    let text=document.getElementById('loadText');
+
+    let interval=setInterval(()=>{
+        if(width>=120){
+            clearInterval(interval);
+            setTimeout(()=>{next(3); showMessages();},1000);
+        }else{
+            width++;
+            bar.style.width=(width>100?100:width)+'%';
+            percent.innerText=width+'%';
+            if(width==101){
+                text.innerText="ERROR: TOO IMPORTANT TO ME ❤️";
+                text.style.color="#ff4d94";
+            }
         }
-    </script>
+    },30);
+}
+
+function showMessages(){
+    let ids=["m1","m2","m3","m4","m5","m6"];
+    ids.forEach((id,i)=>{
+        setTimeout(()=>{
+            let el=document.getElementById(id);
+            if(el) el.classList.add("show");
+        }, i*800);
+    });
+}
+
+/* Floating Hearts Generator */
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.style.left=Math.random()*100+"vw";
+    heart.innerHTML="❤";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},800);
+</script>
+
 </body>
 </html>
